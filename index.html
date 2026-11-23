@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LadyOlvido | Resmi Bağlantılar & Yayın Sayfası</title>
+    <meta name="description" content="Kick yayıncısı LadyOlvido resmi bağlantı ve biolink sayfası. Canlı yayınlar, sosyal medya hesapları ve duyurular.">
+    <link rel="icon" type="image/png" href="avatar.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-base: #09070f;
+            --bg-card: rgba(22, 17, 33, 0.72);
+            --bg-card-hover: rgba(35, 27, 54, 0.88);
+            --border-card: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(192, 132, 252, 0.45);
+            
+            --kick-green: #53fc18;
+            --kick-glow: rgba(83, 252, 24, 0.35);
+            
+            --violet-primary: #a855f7;
+            --violet-glow: rgba(168, 85, 247, 0.35);
+            --fuchsia-accent: #ec4899;
+            --fuchsia-glow: rgba(236, 72, 153, 0.3);
+            
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: radial-gradient(circle at 50% -10%, #1e1236 0%, #0e0918 50%, #07050d 100%);
+            background-color: var(--bg-base);
+            background-attachment: fixed;
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px 16px 80px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Clean Background Mesh Pattern */
+        .bg-mesh {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: radial-gradient(rgba(168, 85, 247, 0.08) 1px, transparent 1px);
+            background-size: 32px 32px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Ambient Glowing Background */
+        .ambient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(140px);
+            opacity: 0.22;
+            animation: pulse-glow 9s ease-in-out infinite alternate;
+        }
+
+        .orb-1 {
+            width: 500px;
+            height: 500px;
+            background: var(--violet-primary);
+            top: -120px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .orb-2 {
+            width: 420px;
+            height: 420px;
+            background: var(--fuchsia-accent);
+            bottom: 8%;
+            left: -80px;
+            animation-duration: 11s;
+        }
+
+        .orb-3 {
+            width: 360px;
+            height: 360px;
+            background: var(--kick-green);
+            top: 38%;
+            right: -80px;
+            opacity: 0.16;
+            animation-duration: 10s;
+        }
+            top: 35%;
+            right: -80px;
+            animation-duration: 10s;
+        }
+
+        @keyframes pulse-glow {
+            0% { transform: scale(0.9) translate(0, 0); opacity: 0.18; }
+            100% { transform: scale(1.15) translate(20px, 30px); opacity: 0.28; }
+        }
+
+        /* Container */
+        .main-container {
+            width: 100%;
+            max-width: 580px;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* Profile Header with Steampunk Laboratory Banner */
+        .profile-card {
+            width: 100%;
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-radius: 26px;
+            overflow: hidden;
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 6px;
+            transition: border-color 0.3s ease;
+        }
+
+        .banner-wrap {
+            width: 100%;
+            height: 180px;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(168, 85, 247, 0.3);
+        }
+
+        .banner-img {
+            position: absolute;
+            top: -8%;
+            left: -8%;
+            width: 116%;
+            height: 116%;
+            background: url('banner.jpg') center center / cover no-repeat;
+            animation: banner-cinematic 20s ease-in-out infinite alternate;
+            will-change: transform;
+            transition: filter 0.5s ease;
+        }
+
+        @keyframes banner-cinematic {
+            0% {
+                transform: scale(1) translate(0, 0);
+            }
+            33% {
+                transform: scale(1.08) translate(-2%, -1.5%);
+            }
+            66% {
+                transform: scale(1.05) translate(1.5%, -2%);
+            }
+            100% {
+                transform: scale(1.1) translate(-1%, -0.5%);
+            }
+        }
+
+        .banner-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(14, 10, 22, 0.1) 0%, rgba(14, 10, 22, 0.45) 55%, rgba(23, 17, 36, 0.98) 100%),
+                        radial-gradient(circle at 50% 25%, rgba(168, 85, 247, 0.22) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .banner-glow-sweep {
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 75%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(236, 72, 153, 0.12), rgba(168, 85, 247, 0.28), rgba(83, 252, 24, 0.15), transparent);
+            transform: skewX(-25deg);
+            animation: light-sweep 9s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        @keyframes light-sweep {
+            0%, 60% { left: -150%; opacity: 0; }
+            68% { opacity: 1; }
+            100% { left: 220%; opacity: 0; }
+        }
+
+        .profile-card:hover .banner-img {
+            filter: brightness(1.1) saturate(1.1);
+        }
+
+        .profile-body {
+            width: 100%;
+            padding: 0 24px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-top: -65px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .avatar-wrapper {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin-bottom: 16px;
+            z-index: 12;
+        }
+
+        .avatar-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #1a1428;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 25px var(--violet-glow);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s ease;
+            background: #1b132a;
+            position: relative;
+            z-index: 12;
+        }
+
+        .avatar-wrapper:hover .avatar-img {
+            transform: scale(1.05);
+            border-color: var(--violet-primary);
+        }
+
+        /* Live status pill on avatar */
+        .status-badge {
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(14, 11, 22, 0.95);
+            border: 1.5px solid rgba(168, 85, 247, 0.45);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            backdrop-filter: blur(10px);
+            white-space: nowrap;
+            transition: all 0.3s ease;
+            z-index: 15;
+        }
+            border: 1.5px solid rgba(168, 85, 247, 0.4);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            backdrop-filter: blur(10px);
+            white-space: nowrap;
+            transition: all 0.3s ease;
+        }
+
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--kick-green);
+            box-shadow: 0 0 10px var(--kick-green);
+            animation: live-blink 1.5s infinite;
+        }
+
+        @keyframes live-blink {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.85); }
+        }
+
+        .profile-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 6px;
+            background: linear-gradient(135deg, #ffffff 40%, #d8b4fe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .verified-badge {
+            font-size: 18px;
+            color: #38bdf8;
+            -webkit-text-fill-color: #38bdf8;
+        }
+
+        .profile-bio {
+            font-size: 14.5px;
+            color: var(--text-secondary);
+            max-width: 440px;
+            line-height: 1.55;
+            margin-bottom: 14px;
+            font-weight: 400;
+        }
+
+        .tag-pills {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .tag-pill {
+            font-size: 11.5px;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            padding: 4px 12px;
+            border-radius: 12px;
+            color: #d8b4fe;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Link Cards */
+        .links-wrapper {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 13px;
+        }
+
+        .link-card {
+            width: 100%;
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 18px;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            text-decoration: none;
+            color: inherit;
+            backdrop-filter: blur(14px);
+            transition: all 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .link-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: transparent;
+            transition: background 0.3s ease;
+        }
+
+        .link-card:hover {
+            transform: translateY(-3px);
+            background: var(--bg-card-hover);
+            border-color: var(--border-hover);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4), 0 0 20px rgba(168, 85, 247, 0.15);
+        }
+
+        /* Hero / Featured Card (Kick) */
+        .link-card.hero-card {
+            background: linear-gradient(135deg, rgba(29, 21, 46, 0.88), rgba(15, 11, 24, 0.92));
+            border: 1px solid rgba(83, 252, 24, 0.35);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4), 0 0 25px rgba(83, 252, 24, 0.15);
+            padding: 18px 22px;
+        }
+
+        .link-card.hero-card::before {
+            background: var(--kick-green);
+        }
+
+        .link-card.hero-card:hover {
+            border-color: var(--kick-green);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5), 0 0 35px var(--kick-glow);
+        }
+
+        .card-icon-box {
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .link-card:hover .card-icon-box {
+            transform: scale(1.08);
+        }
+
+        .icon-kick { color: var(--kick-green); background: rgba(83, 252, 24, 0.1); border-color: rgba(83, 252, 24, 0.25); }
+        .icon-instagram { color: #f43f5e; background: rgba(244, 63, 94, 0.1); border-color: rgba(244, 63, 94, 0.25); }
+        .icon-x { color: #ffffff; background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.15); }
+        .icon-twitch { color: #a855f7; background: rgba(168, 85, 247, 0.12); border-color: rgba(168, 85, 247, 0.25); }
+        .icon-throne { color: #f472b6; background: rgba(244, 114, 182, 0.12); border-color: rgba(244, 114, 182, 0.25); }
+        .icon-bluesky { color: #38bdf8; background: rgba(56, 189, 248, 0.12); border-color: rgba(56, 189, 248, 0.25); }
+        .icon-discord { color: #5865f2; background: rgba(88, 101, 242, 0.12); border-color: rgba(88, 101, 242, 0.25); }
+        .icon-mail { color: #fbbf24; background: rgba(251, 191, 36, 0.1); border-color: rgba(251, 191, 36, 0.25); }
+
+
+
+        .card-details {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            min-width: 0;
+        }
+
+        .card-header-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-badge {
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+
+        .badge-kick { background: rgba(83, 252, 24, 0.15); color: var(--kick-green); border: 1px solid rgba(83, 252, 24, 0.3); }
+        .badge-violet { background: rgba(168, 85, 247, 0.15); color: #d8b4fe; border: 1px solid rgba(168, 85, 247, 0.3); }
+
+        .card-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-arrow {
+            font-size: 14px;
+            color: var(--text-muted);
+            transition: all 0.25s ease;
+            flex-shrink: 0;
+        }
+
+        .link-card:hover .card-arrow {
+            color: var(--text-primary);
+            transform: translateX(3px);
+        }
+
+        /* Copy Button Card */
+        .copy-card {
+            cursor: pointer;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 10px;
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .footer-brand {
+            font-weight: 600;
+            color: #cbd5e1;
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(80px);
+            background: rgba(18, 14, 28, 0.96);
+            border: 1px solid rgba(168, 85, 247, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px var(--violet-glow);
+            padding: 12px 24px;
+            border-radius: 30px;
+            color: #ffffff;
+            font-size: 13.5px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            backdrop-filter: blur(16px);
+            z-index: 100;
+            opacity: 0;
+            transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            pointer-events: none;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Clean Subtle Mesh Background -->
+    <div class="bg-mesh"></div>
+
+    <!-- Ambient Glow Orbs -->
+    <div class="ambient-bg">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+    </div>
+
+    <div class="main-container">
+
+        <!-- Profile Section -->
+        <div class="profile-card">
+            <div class="banner-wrap">
+                <div class="banner-img"></div>
+                <div class="banner-overlay"></div>
+                <div class="banner-glow-sweep"></div>
+            </div>
+            <div class="profile-body">
+                <div class="avatar-wrapper">
+                    <img src="avatar.webp" onerror="this.src='avatar.png'" alt="LadyOlvido" class="avatar-img" id="userAvatar">
+                    <div class="status-badge" id="kickBadge">
+                        <span class="live-dot" id="liveDot"></span>
+                        <span id="kickStatusText">KICK YAYINDA</span>
+                    </div>
+                </div>
+
+                <h1 class="profile-title">
+                    LadyOlvido
+                    <i class="fa-solid fa-circle-check verified-badge" title="Onaylı Yayıncı"></i>
+                </h1>
+
+                <p class="profile-bio">
+                    Simitçi, kahveci, gazozcu..<br>
+                    Canlı yayınlar ve tüm güncel paylaşımlar burada!
+                </p>
+
+                <div class="tag-pills">
+                    <span class="tag-pill"><i class="fa-solid fa-microphone-lines"></i> Just Chatting</span>
+                    <span class="tag-pill"><i class="fa-solid fa-gamepad"></i> Gaming</span>
+                    <span class="tag-pill"><i class="fa-solid fa-heart" style="color: #ec4899;"></i> Topluluk</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Links Section -->
+        <div class="links-wrapper">
+
+            <!-- Featured / Hero Kick Stream Card -->
+            <a href="https://kick.com/ladyolvido" target="_blank" rel="noopener noreferrer" class="link-card hero-card" id="kickHeroCard">
+                <div class="card-icon-box icon-kick">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+                <div class="card-details">
+                    <div class="card-header-row">
+                        <span class="card-title">Kick Canlı Yayın</span>
+                        <span class="card-badge badge-kick" id="kickHeroBadge">CANLI / TAKİP ET</span>
+                    </div>
+                    <span class="card-desc" id="kickHeroSubtitle">kick.com/ladyolvido • Canlı sohbete katıl ve abone ol</span>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square card-arrow"></i>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://instagram.com/ladyolvidoo" target="_blank" rel="noopener noreferrer" class="link-card">
+                <div class="card-icon-box icon-instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </div>
+                <div class="card-details">
+                    <div class="card-header-row">
+                        <span class="card-title">Instagram</span>
+                        <span class="card-badge badge-violet">@ladyolvidoo</span>
+                    </div>
+                    <span class="card-desc">Hikayeler, anlık paylaşımlar ve kulis</span>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square card-arrow"></i>
+            </a>
+
+            <!-- X / Twitter -->
+            <a href="https://twitter.com/LadyOlvido" target="_blank" rel="noopener noreferrer" class="link-card">
+                <div class="card-icon-box icon-x">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </div>
+                <div class="card-details">
+                    <div class="card-header-row">
+                        <span class="card-title">X (Twitter)</span>
+                        <span class="card-badge badge-violet">@LadyOlvido</span>
+                    </div>
+                    <span class="card-desc">Gündem, anlık düşünceler ve duyurular</span>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square card-arrow"></i>
+            </a>
+
+            <!-- Throne Wishlist -->
+            <a href="https://throne.com/ladyolvido" target="_blank" rel="noopener noreferrer" class="link-card">
+                <div class="card-icon-box icon-throne">
+                    <i class="fa-solid fa-gift"></i>
+                </div>
+                <div class="card-details">
+                    <div class="card-header-row">
+                        <span class="card-title">Throne</span>
+                        <span class="card-badge badge-violet">Wishlist</span>
+                    </div>
+                    <span class="card-desc">throne.com/ladyolvido • Yayın & stüdyo hediyeleri</span>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square card-arrow"></i>
+            </a>
+
+            <!-- Bluesky -->
+            <a href="https://bsky.app/profile/ladyolvido.bsky.social" target="_blank" rel="noopener noreferrer" class="link-card">
+                <div class="card-icon-box icon-bluesky">
+                    <i class="fa-solid fa-cloud"></i>
+                </div>
+                <div class="card-details">
+                    <div class="card-header-row">
+                        <span class="card-title">Bluesky</span>
+                        <span class="card-badge badge-violet">@ladyolvido</span>
+                    </div>
+                    <span class="card-desc">bsky.app/profile/ladyolvido.bsky.social • Duyurular & paylaşımlar</span>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square card-arrow"></i>
+            </a>
+
+            <!-- Twitch -->
+            <a href="https://twitch.tv/ladyolvido" target="_blank" rel="noopener noreferrer" class="link-card">
+                <div class="card-icon-box icon-twitch">
+                    <i class="fa-brands fa-twitch"></i>
+                </div>
+                <div class="card-details">
+                    <div class="card-header-row">
+                        <span class="card-title">Twitch</span>
+                        <span class="card-badge badge-violet">TAKİP ET</span>
+                    </div>
+                    <span class="card-desc">Yedek yayınlar ve eski yayın arşivi</span>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square card-arrow"></i>
+            </a>
+
+            <!-- Discord Community -->
+            <a href="https://discord.gg/olvidanya" target="_blank" rel="noopener noreferrer" class="link-card" id="discordCard">
+                <div class="card-icon-box icon-discord">
+                    <i class="fa-brands fa-discord"></i>
+                </div>
+                <div class="card-details">
+                    <div class="card-header-row">
+                        <span class="card-title">Discord Topluluğu</span>
+                        <span class="card-badge badge-violet">olvidanya</span>
+                    </div>
+                    <span class="card-desc">Yayın sonrası sohbet, film ve oyun geceleri</span>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square card-arrow"></i>
+            </a>
+
+            <!-- Sponsorluk & İletişim (Click-to-copy) -->
+            <div class="link-card copy-card" id="emailCard">
+                <div class="card-icon-box icon-mail">
+                    <i class="fa-regular fa-envelope"></i>
+                </div>
+                <div class="card-details">
+                    <div class="card-header-row">
+                        <span class="card-title">İletişim & Sponsorluk</span>
+                        <span class="card-badge badge-violet">E-POSTA</span>
+                    </div>
+                    <span class="card-desc" id="emailText">ladyolvidostream@gmail.com • Kopyalamak için tıkla</span>
+                </div>
+                <i class="fa-regular fa-copy card-arrow" id="copyIcon"></i>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-text">
+                © 2026 <span class="footer-brand">LadyOlvido</span> • Tüm Hakları Saklıdır
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fa-solid fa-circle-check" style="color: var(--violet-primary);"></i>
+        <span>E-posta adresi panoya kopyalandı!</span>
+    </div>
+
+    <script>
+        // E-posta Kopyalama & Toast Bildirimi
+        const emailCard = document.getElementById('emailCard');
+        const toast = document.getElementById('toast');
+        const copyIcon = document.getElementById('copyIcon');
+        const email = 'ladyolvidostream@gmail.com';
+
+        emailCard.addEventListener('click', () => {
+            navigator.clipboard.writeText(email).then(() => {
+                toast.classList.add('show');
+                copyIcon.className = 'fa-solid fa-check card-arrow';
+                copyIcon.style.color = 'var(--violet-primary)';
+
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                    copyIcon.className = 'fa-regular fa-copy card-arrow';
+                    copyIcon.style.color = '';
+                }, 2800);
+            }).catch(err => {
+                console.error('Kopyalama hatası:', err);
+            });
+        });
+
+        // Canlı Kick Durumu Kontrolü
+        function updateKickStatus(isLive) {
+            const avatarBadge = document.getElementById('kickBadge');
+            const avatarText = document.getElementById('kickStatusText');
+            const heroBadge = document.getElementById('kickHeroBadge');
+            const heroSub = document.getElementById('kickHeroSubtitle');
+            const heroCard = document.getElementById('kickHeroCard');
+            const dot = document.getElementById('liveDot');
+
+            if (isLive) {
+                if (avatarText) avatarText.innerText = 'CANLI YAYINDA';
+                if (dot) {
+                    dot.style.background = 'var(--kick-green)';
+                    dot.style.display = 'inline-block';
+                }
+                if (avatarBadge) {
+                    avatarBadge.style.borderColor = 'var(--kick-green)';
+                    avatarBadge.style.color = 'var(--kick-green)';
+                    avatarBadge.style.boxShadow = '0 4px 14px var(--kick-glow)';
+                }
+                if (heroBadge) {
+                    heroBadge.className = 'card-badge badge-kick';
+                    heroBadge.innerText = 'ŞU AN CANLI';
+                }
+                if (heroSub) heroSub.innerText = 'kick.com/ladyolvido • Yayına katıl, chate selam ver!';
+                if (heroCard) heroCard.style.borderColor = 'var(--kick-green)';
+            } else {
+                if (avatarText) avatarText.innerText = 'ÇEVRİMDIŞI';
+                if (dot) dot.style.display = 'none';
+                if (avatarBadge) {
+                    avatarBadge.style.borderColor = 'rgba(168, 85, 247, 0.4)';
+                    avatarBadge.style.color = '#d8b4fe';
+                    avatarBadge.style.boxShadow = 'none';
+                }
+                if (heroBadge) {
+                    heroBadge.className = 'card-badge badge-violet';
+                    heroBadge.innerText = 'TAKİP ET';
+                }
+                if (heroSub) heroSub.innerText = 'kick.com/ladyolvido • Yayın bildirimlerini aç ve takip et';
+                if (heroCard) heroCard.style.borderColor = 'rgba(255, 255, 255, 0.12)';
+            }
+        }
+
+        // Kick API'den Canlı Yayın Sorgusu
+        function checkKickLive() {
+            fetch('https://kick.com/api/v2/channels/ladyolvido')
+                .then(r => r.ok ? r.json() : Promise.reject())
+                .then(data => {
+                    const isApiLive = !!(data && data.livestream && data.livestream.is_live);
+                    updateKickStatus(isApiLive);
+                })
+                .catch(() => {
+                    // API ulaşılamazsa varsayılan durum
+                    updateKickStatus(false);
+                });
+        }
+
+        checkKickLive();
+        setInterval(checkKickLive, 60000); // 1 dakikada bir kontrol
+    </script>
+</body>
+</html>
